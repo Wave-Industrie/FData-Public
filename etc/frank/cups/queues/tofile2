@@ -1,0 +1,6 @@
+#! /bin/sh
+
+splf="$6"
+if [ -r "$splf" ]; then cat "$splf" >/tmp/pf.lp; fi
+
+exit

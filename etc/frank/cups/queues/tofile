@@ -1,0 +1,10 @@
+#! /bin/sh
+
+q=$(basename $0)
+LOG="/tmp/cupsd-$q.log"
+
+echo DUMMY_PRT $0 $* >>$LOG
+
+#cat >>/tmp/pf.lp
+
+exit 0
