@@ -1,0 +1,19 @@
+#! /bin/bash
+
+fa=1234567
+
+cd $(dirname $0)
+
+fn=$PWD/rm-$fa
+
+s="select rmidupddt,rmidst0,rmidst1,rmid,rmidfa,rmidag,rmidnng,rmidnns,rmidgewg,rmidgews,rmidgewt,rmidap,rmidnac,rmidgewg/rmidnng*1000 from rmid4 where rmidfa=$fa""0000 and rmidst0=90 and rmidag in (10,30) order by rmidag,rmid"
+s="select rmidupddt,rmidst0,rmidst1,rmid,rmidlid,rmidfa,rmidag,rmidnng,rmidnns,rmidgewg,rmidgews,rmidgewt,rmidap,rmidnac,rmidgewg/rmidnng*1000,rmidgews/rmidnns*1000 from rmid4 where rmidfa=$fa""0000 and rmidst0 in (90,95) order by rmidag,rmid"
+
+echo "$s" | mysql fdata5 >$fn.txt
+
+rm $fn.xls
+mk-poi4 --sql-nativ $fn.txt $fn.xls
+
+echo "" | mail -s "Auftrag $fa" -a $fn.xls dev@domain.de
+
+exit

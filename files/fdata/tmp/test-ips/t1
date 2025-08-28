@@ -1,0 +1,34 @@
+#! /bin/bash
+
+emdadr="dev@domain.de"
+
+cd $(dirname $0)
+
+function mjerr()
+ {
+ echo "" | mail -s "ping timeout ip=$1" $emdadr
+ }
+
+function mj1()
+ {
+ ping -c 1 -W 2 $1
+ erg=$?
+ if [ $erg -ne 0 ]; then mjerr $1; fi
+ }
+
+function mj()
+ {
+ while [ 1 ]; do
+  if [ -a stop ]; then break; fi
+
+  mj1 1.1.1.210
+  mj1 1.1.1.110
+  mj1 1.1.1.208
+
+  sleep 90
+ done
+ }
+
+mj >>/dev/null 2>>/dev/null &
+
+exit
