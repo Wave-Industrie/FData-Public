@@ -1,0 +1,2 @@
+lpadmin -p sgmlp -v lpd://10.0.10.1/lp -E
+lpoptions -p sgmlp -o job-sheets=none

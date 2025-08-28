@@ -1,0 +1,9 @@
+#! /bin/bash
+
+lpadmin -x tofile
+#lpadmin -p tofile -v pipe:/etc/frank/cups/queues/tofile
+lpadmin -p tofile -i /etc/frank/cups/queues/tofile2 -E -o printer-error-policy=retry-job
+lpoptions -p tofile -o job-sheets=none
+exit
+
+*censored*
