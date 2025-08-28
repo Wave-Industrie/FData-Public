@@ -1,0 +1,37 @@
+#! /bin/bash
+
+cd $(dirname $0)
+MYCMD=$(basename $0)
+
+if [ -a PID.running ]; then echo "already running - exit" >&2; exit 1; fi
+
+LOG="$PWD/server.log"
+AGENT=$(cat cnf/agent.jars)
+JARS=$(cat cnf/startup.jars)
+DEFS=$(cat cnf/java-defs)
+
+if [ ! "$JARS" ]; then echo "jar files in cnf/startup.jars missing - exit" >&2; exit 1; fi
+if [ ! "$AGENT" ]; then echo "agent-jar files in cnf/agent.jar missing - exit" >&2; exit 1; fi
+AGENT="-javaagent:$AGENT"
+# um pid der jvm zu lesen: -Dxfrank.lib.get-ppid.sh=[die-shell-die-die-pid-ausgibt]
+
+if [ -r cnf/exports.sh ]; then . cnf/exports.sh; fi # z.b LD_LIBRARY_PATH
+
+function mj()
+ {
+# multi classloader
+#java-17 $DEFS $AGENT -cp $PWD/nix.jar frank.slib.SlibMain $PWD/nix.jar:$JARS frank.lib.CurrentContextMain frank.lib.script.JsRhino \
+#  $PWD/obj/startup.js
+
+# single classloader
+ java-17 $DEFS $AGENT -cp $PWD/nix.jar:$JARS frank.lib.CurrentContextMain frank.lib.script.JsRhino \
+  $PWD/obj/startup.js
+
+ erg=$?
+ echo "bash-erg=$erg" >&2
+# if [ $erg -eq 52 ]; then sleep 3; $PWD/$MYCMD; fi
+ }
+
+mj >>"$LOG" 2>>"$LOG" &
+exit
+

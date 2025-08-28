@@ -1,0 +1,16 @@
+./cconnect-start.js
+#./conf-start.js
+####../mods/httpgate/obj/httpgate-start.js
+####../mods/disp100/obj/disp100-start.js
+####../mods/htmld/obj//htmld-start.js
+../cnf/startup2.sh
+#/files/fdata/V3/xml100d/obj/xml100d-start.js
+#./xforward4-start.js
+#/files/fdata/V3/bcr100/obj/bcr100-start.js
+#/files/fdata/V3/aichelin/obj/aichelin-start.js
+#/files/fdata/V3/es4d/obj/es4d-start.js
+#/files/fdata/V3/ores/obj/ores-start.js
+#/files/fdata/V3/xppsd/obj/as400d-start.js
+#/files/fdata/V3/ofr/obj/ofr-start.js
+#/javaprj/f/frank3/V4/src/test/ssl/ssl-start.js
+#/files/fdata/V4/disp100/obj/disp100-start.js

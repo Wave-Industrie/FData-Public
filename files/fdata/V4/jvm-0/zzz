@@ -1,0 +1,9 @@
+#! /bin/bash
+
+#grep "logon-h: mime=null 1.1.1.110" *.log
+#grep "logon-h: mime=null 1.1.1.210" *.log
+grep "logon-h: mime=null 1.1.1.208" *.log
+#grep "logon-h: mime=null 1.1.1.108" *.log
+
+
+exit

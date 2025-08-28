@@ -1,0 +1,6 @@
+#! /bin/bash
+
+tail -f *.log
+#grep 'logon-h: u=' *.log
+
+exit

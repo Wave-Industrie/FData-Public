@@ -1,0 +1,1 @@
+-Djavax.net.ssl.keyStore=/files/fdata/V4/etc/keystore.jks -Djavax.net.ssl.keyStorePassword=*censored* -Dfrank.lib.config.ConfigClient.portfile=/files/fdata/V4/tmp/ports/confd/v0 -Dfrank.lib.disp100.portfile=/files/fdata/V4/tmp/ports/disp100/v0 -Dfrank.lib.ores.portfile=/files/fdata/V4/tmp/ports/ores/v0 -Dno-javax.net.debug=all -Dno-sun.security.ssl.allowUnsafeRenegotiation=true
