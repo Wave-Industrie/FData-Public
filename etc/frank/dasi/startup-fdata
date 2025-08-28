@@ -1,0 +1,21 @@
+#!/bin/sh
+
+fdir="/files/fdata/w3"
+
+/bin/rm $fdir/tmp/proc/*
+
+cd $fdir/startup
+./go
+sleep 10
+
+exit 0
+
+cd $fdir/startup
+./go.nac
+sleep 10
+
+cd $fdir/startup
+./p.startup
+sleep 10
+
+exit 0
