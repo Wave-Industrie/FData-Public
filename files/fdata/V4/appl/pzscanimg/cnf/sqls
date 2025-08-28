@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <conf>
+  <asql URL="jdbc:odbc:random" TRACE="false" STREAM="false" USER="*censored*" PASSWD="*censored*"/>
+ </conf>

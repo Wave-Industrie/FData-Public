@@ -1,0 +1,103 @@
+<html>
+ <head>
+  <title>Teilebild</title>
+  <style  src="lib/hlib-css-b.css"    type="text/css"></style>
+  <script src="lib/hlib-compat-c.js"  type="text/javascript"></script>
+  <script src="lib/hlib-stdlib-b.js"  type="text/javascript"></script>
+  <script src="lib/hlib-comps00-b.js" type="text/javascript"></script>
+  <script src="lib/hlib-comps01-c.js" type="text/javascript"></script>
+  <script src="lib/disp100-hlib-b.js" type="text/javascript"></script>
+  <script                             type="text/javascript">
+
+//------------------------------------------------------- Application Defines
+APPL_DEFINES = {};
+
+APPL_DEFINES.POPUPFCT = function()
+ {
+ return(document.eventReceived);
+ };
+
+APPL_DEFINES.ID = {};
+
+APPL_DEFINES.ID["jt"] = {};
+APPL_DEFINES.ID["jt"].TITLE = [ "Lid",  "Tenr","Mng" ];
+APPL_DEFINES.ID["jt"].WIDTH = [ "60",   "0",   "50" ];
+APPL_DEFINES.ID["jt"].ALIGN = [ "right","left","right" ];
+
+L1 = null;
+CC = null;
+
+LAST_DOWN = null;
+
+// --------------------------------------------------------------
+function xml100Layout()
+ {
+ if (CC) CC.doLayout(CC);
+ }
+
+// --------------------------------------------------------------
+function xml100Resized()
+ {
+ if (CC) CC.doResized(CC);
+ }
+
+// --------------------------------------------------------------
+function geladen()
+ {
+ if (document.LOADED) return;
+ if (!document["parent-datas"])
+  {
+  document.geladen = geladen;
+  return;
+  }
+ document.LOADED = true;
+
+// adjustBase();
+
+ CC = new HlibComps00();
+ L1 = new Disp100Hlib().setup();
+ C1 = HlibComps01.ICH;
+
+ APPL_DEFINES.onclick = document.eventReceived;
+ APPL_DEFINES.buttonOnclick = document.eventReceived;
+ APPL_DEFINES.scannerOnenter = document.eventReceived;
+
+ CC.geladen(APPL_DEFINES,CC,C1);
+
+ xml100Layout();
+
+ window.focus();
+ }
+
+// --------------------------------------------------------------
+function adjustBase()
+ {
+ var base = document.getElementById("base");
+ var d00 = base.parentNode;
+ var h = 1*d00.clientHeight - 40;
+ base.style.height = ""+h+"px";
+
+ base = document.getElementById("pope22-msg");
+ d00 = base.parentNode;
+ h = 1*d00.clientHeight - 60;
+ base.style.height = ""+h+"px";
+ }
+
+
+
+
+  </script>
+ </head>
+ <body id="bdy" class="bdy f0f0 scan" onload="geladen()" onresize="xml100Resized(event)" onkeypress="return HlibComps01.scanReceived(event,eventReceived)" onselectstart="return false;">
+  <div id="d00" class="d00">
+   <div         class="popi0 f0f0">
+
+    <div  id="tit"     class="abs right t16 bold"      style="top:2px; right:5px"></div>
+    <div  id="bild"    class="abs bild white"          style="top:20px; bottom:20px; left:5px; right:5px"></div>
+    <div  id="e22"     class="abs center t16 bold"     style="left:0px; bottom:2px; width:100%"></div>
+
+   </div>
+
+  </div>
+ </body>
+</html>
