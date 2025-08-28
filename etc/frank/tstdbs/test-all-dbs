@@ -1,0 +1,50 @@
+#! /bin/sh
+
+my="mysql -N"
+
+cd $(dirname $0)
+
+#---------------------
+function mj()
+ {
+ local db=$1
+ local tbn
+ while [ 1 ]; do
+  read tbn
+  if [ $? -ne 0 ]; then break; fi
+  s="check table $tbn extended"
+  echo "$s" | $my $db
+ done
+ }
+
+#---------------------
+function list_tbns()
+ {
+ local db
+ local s
+ while [ 1 ]; do
+  read db
+  if [ $? -ne 0 ]; then break; fi
+#echo "db="$db
+  s="show tables"
+  echo "$s" | $my $db | mj $db
+ done
+ }
+
+
+#---------------------
+function list_dbs()
+ {
+ local s="show databases"
+ echo "$s" | $my
+ }
+
+{
+echo start
+date
+list_dbs | list_tbns
+echo fini
+date
+} >>z-data-tstdbs 2>>z-data-tstdbs  &
+
+exit
