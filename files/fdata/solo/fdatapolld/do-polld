@@ -1,0 +1,24 @@
+#! /bin/bash
+
+cd $(dirname $0)
+
+function mj()
+ {
+ echo $0: started at $(date) pid=$$ >&2
+
+ while [ 1 ]; do
+
+  if [ -a stop ]; then break; fi
+
+  sleep 5
+
+  $PWD/do-other
+
+ done
+
+ echo $0: fini at $(date) pid=$$ >&2
+ }
+
+mj
+
+exit

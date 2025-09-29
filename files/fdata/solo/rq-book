@@ -1,0 +1,10 @@
+#! /bin/bash
+
+# echo $# $0 "$@" >&2
+
+cd $(dirname $0)
+
+echo 1 >cmd-rq-book
+
+exit
+

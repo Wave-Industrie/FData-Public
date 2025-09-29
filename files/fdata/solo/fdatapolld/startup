@@ -1,0 +1,9 @@
+#! /bin/bash
+
+cd $(dirname $0)
+
+LOG=$PWD/log.d/polld.log
+
+$PWD/do-polld >>$LOG 2>>$LOG &
+
+exit

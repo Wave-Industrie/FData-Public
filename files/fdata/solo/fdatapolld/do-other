@@ -1,0 +1,18 @@
+#! /bin/bash
+
+/files/fdata/v6/mdnt/mdnt/appl2/do-evtl-book
+/files/fdata/v6/mdnt/mdnt/appl3/do-evtl-book
+
+/files/fdata/V6/appls/mdnt/mdnt/lag/00/do-evtl-book
+/files/fdata/LIBLS/CONF/appl/vwb/do-evtl-book
+/files/fdata/V4/appl/appl3/cnf-loc/do-evtl-book
+/files/fdata/V4/appl/appl3/cnf/do-evtl-book
+/files/fdata/V4/appl/lpr/cnf/do-evtl-book
+
+/files/fdata/V6/appls/mdnt/mdnt/appl3/00bb/do-evtl-book
+/files/fdata/V6/appls/mdnt/mdnt/appl4/00bb/do-evtl-book
+
+/files/fdata/V6/appls/qry0400/do-evtl-book
+
+exit
+

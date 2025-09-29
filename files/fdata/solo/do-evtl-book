@@ -1,0 +1,15 @@
+#! /bin/bash
+
+cd $(dirname $0)
+
+if [ -r $PWD/cmd-rq-book ]; then
+
+echo $0 >&2
+
+$PWD/do-book
+
+rm $PWD/cmd-rq-book
+
+fi
+
+exit
