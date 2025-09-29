@@ -1,0 +1,4 @@
+TBN=f6.imp6
+my="mysql -N -u fdata"
+myr="mysql -N -r -u fdata"
+LOG=/tmp/loglog.job-inqueue
